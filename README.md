@@ -6,6 +6,15 @@
 
 This project investigates how data-encoding repetitions and circuit depth affect the frequencies a quantum neural network (QNN) can represent. It will fit periodic one- and two-dimensional target functions with one to six data re-uploading layers, analyze the trained models' Fourier spectra, compare serial and parallel feature encoding, and evaluate a small classification task.
 
+## Initial synopsis
+
+The two-column IEEE conference-style project synopsis, including the research question, falsifier, data, models, baselines, and milestone schedule, is in [`synopsis.tex`](synopsis.tex). Compile it with an IEEEtran LaTeX installation, for example:
+
+```powershell
+pdflatex synopsis.tex
+pdflatex synopsis.tex
+```
+
 ### Research question
 
 How do encoding repetitions and layer count determine the frequencies a QNN can represent?

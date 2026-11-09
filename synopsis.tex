@@ -1,0 +1,167 @@
+\documentclass[conference]{IEEEtran}
+
+\usepackage{amsmath}
+\usepackage{cite}
+
+\title{Data Re-Uploading and the Fourier Spectrum of Quantum Neural Networks}
+
+\author{\IEEEauthorblockN{Rana Muhammad Hamza}
+\IEEEauthorblockA{Roll Number: 25280103\\
+QML Course\\
+Instructor: Dr.\ Faryad}}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This project will test how data re-uploading and circuit depth shape the
+Fourier components representable by quantum neural networks (QNNs). We will
+fit controlled one- and two-dimensional periodic targets with one to six
+encoding layers, compare serial and parallel feature encodings, and evaluate
+a two-qubit classifier on synthetic spirals. Fourier-feature linear
+regression and a parameter-matched multilayer perceptron (MLP) will provide
+classical baselines. Noiseless simulations will establish spectra and
+generalization errors; a trained one-qubit regressor will additionally be
+evaluated on IBM quantum hardware, subject to account and backend access.
+The analysis will test predicted frequency support while distinguishing
+theoretically allowed harmonics from modes actually present after training.
+\end{abstract}
+
+\begin{IEEEkeywords}
+quantum machine learning, data re-uploading, Fourier spectrum, variational
+quantum circuits, quantum neural networks
+\end{IEEEkeywords}
+
+\section{Motivation and Research Question}
+Data re-uploading alternates input-dependent quantum gates with trainable
+operations, allowing a compact circuit to build richer functions through
+repeated encoding \cite{perez,schuld}. The number of encoding repetitions
+therefore provides a principled control over the candidate frequencies of a
+QNN. This project asks: \emph{How do encoding repetitions and layer count
+determine the frequencies a QNN can represent, and how do serial and parallel
+feature encodings affect that representation and its resource cost?}
+
+For a feature encoded by $L$ occurrences of rotations
+$R_P(x)=\exp(-ixP/2)$, where $P$ is a Pauli operator, the expected output has
+candidate integer harmonics $k\in\{-L,\ldots,L\}$. In multiple dimensions,
+the support is a set of frequency vectors; the circuit structure can restrict
+that set, and optimization can suppress otherwise allowed coefficients.
+Accordingly, the study will report both candidate support and measured
+Fourier coefficients rather than equating the two.
+
+\section{Data and Experimental Design}
+\subsection{Synthetic Regression}
+Inputs lie on the periodic domain $[-\pi,\pi)$ (and its two-dimensional
+product). The target functions are
+\begin{align}
+f_1(x) &= 0.5\cos x+0.3\sin(2x)+0.2\cos(3x),\\
+f_2(x_1,x_2) &= 0.4\sin x_1+0.3\cos(2x_2)
+                  +0.3\sin(x_1-x_2).
+\end{align}
+Both functions are bounded by one and have known, nontrivial spectra. Models
+with one through six re-uploading layers will be trained on fixed,
+seeded uniform samples (128 one-dimensional and 2,048 two-dimensional
+points) and evaluated on separate dense uniform grids. Each configuration
+will use data-generation seed 42, five initialization seeds (0--4), and
+full-batch Adam (learning rate 0.01, at most 1,000 updates) to minimize MSE.
+The one-dimensional grid will contain 256 points and the two-dimensional
+grid will contain $64\times64$ points. Noiseless predictions on these grids
+will be transformed with a discrete Fourier transform (DFT); grid
+refinement will check suspected out-of-support modes for aliasing.
+
+\subsection{Quantum Models and Encoding Ablation}
+The primary models are variational circuits with Pauli-rotation data
+encoding, trainable single-qubit rotations, and entangling operations where
+applicable. Layer count $L\in\{1,\ldots,6\}$ is the controlled depth variable.
+For one feature, a one-qubit circuit re-uploads $x$ once per layer. For two
+features, the \emph{serial} circuit applies both feature rotations in sequence
+on one qubit per layer; the \emph{parallel} circuit encodes one feature on
+each of two qubits per layer and entangles them. The expectation of a Pauli-$Z$
+observable supplies the regression output or classification score. Encoding
+comparisons will match trainable-parameter counts as closely as circuit
+structure permits and will always report qubits, depth, two-qubit gates, and
+trainable parameters. For both two-feature layouts, the candidate support
+will be tested against coordinate-wise bounds $|k_j|\leq L$ and any
+circuit-specific restrictions.
+
+\subsection{Classification and Baselines}
+The classification task uses a fixed-seed, balanced two-class spiral dataset
+with 1,000 examples per class. Five-fold stratified cross-validation will fit
+any scaling or preprocessing on training folds only. Regression baselines
+are Fourier-feature linear regression, using harmonics up to the QNN's
+candidate cutoff, and an MLP; for spirals, the same Fourier features feed
+logistic regression and the MLP is a classifier. MLP parameter counts will
+match the QNN as closely as possible. Baseline feature maps and tuning
+procedures will be documented. Report mean and standard deviation of
+held-out accuracy and macro F1 for classification and MSE for regression.
+
+\section{Hypothesis, Falsifier, and Analysis}
+The primary hypothesis is that repeated Pauli encodings constrain candidate
+Fourier frequencies according to the number and placement of encoding
+occurrences, while optimization and circuit connectivity determine which
+candidate modes acquire appreciable coefficients. For each trained model,
+the DFT will report coefficient magnitudes and locations alongside held-out
+MSE. The serial/parallel ablation will compare spectra and predictive
+performance at matched layer and parameter budgets, with resource counts
+reported separately rather than conflated.
+
+The falsifier is a reproducible Fourier coefficient outside the
+architecture's predicted frequency support in a noiseless simulation. A
+coefficient will count as evidence only if its magnitude exceeds
+$\max(10^{-6},\,0.01\,c_{\max})$, where $c_{\max}$ is the largest measured
+coefficient, and it persists under a refined evaluation grid and independent
+parameter initializations. Before drawing that conclusion, we will verify
+the encoding-angle convention, frequency normalization, numerical precision,
+and absence of sampling aliasing. Noise and finite-shot experiments will be
+reported separately and will not be used alone to claim a violation of the
+noiseless prediction.
+
+\section{Validation and Hardware Evaluation}
+We will use the course NB11 capstone harness for fixed folds, leakage-free
+preprocessing, baselines, ablations, and noise sweeps. Seeds, generated data,
+model configurations, package versions, and results will be saved with the
+code. The hardware study will execute the trained three-layer, one-qubit periodic
+regressor on an IBM backend at 64 evenly spaced inputs with 1,024 shots per
+input, compare its finite-shot curve with the noiseless simulator curve, and
+record backend, calibration context, and circuit resources. Access
+limitations will be reported explicitly rather than substituted with
+simulated data.
+
+\section{Week-by-Week Plan and Submissions}
+\begin{table}[!t]
+\caption{Project milestones and planned evidence}
+\label{tab:timeline}
+\centering
+\footnotesize
+\begin{tabular}{p{0.20\columnwidth}p{0.72\columnwidth}}
+\hline
+\textbf{Date} & \textbf{Plan and submission}\\
+\hline
+Nov.\ 2 (0\%) & Confirm project/group; enter names and GitHub URL on sign-up tab.\\
+Nov.\ 8 (5\%) & Submit 1--2 page synopsis: question, falsifier, data, models, baselines, weekly plan.\\
+Nov.\ 15 (15\%) & Show data pipeline, fixed folds, classical baselines, first QNN; submit introduction and methods draft and GitHub code.\\
+Nov.\ 22 (25\%) & Show simulator results, noise model, and ablations; submit results draft and code.\\
+Nov.\ 29 (35\%) & Present for first-half groups; have IBM hardware result and final talk ready.\\
+Dec.\ 6 (20\%) & Remaining presentations; submit final LaTeX report (PDF and source) and tagged GitHub release.\\
+\hline
+\end{tabular}
+\end{table}
+Every Sunday, the group will present its progress, current report draft, and
+GitHub code. The final report will follow the two-column IEEEtran or
+REV\TeX{} 4.2 format and include resource counts and author contributions;
+the presentation target is 12 minutes plus 5 minutes for questions.
+
+\begin{thebibliography}{2}
+\bibitem{perez}
+A. P\'erez-Salinas, A. Cervera-Lierta, E. Gil-Fuster, and J. I. Latorre,
+``Data re-uploading for a universal quantum classifier,''
+\emph{Quantum}, vol. 4, p. 226, 2020, doi: 10.22331/q-2020-02-06-226.
+
+\bibitem{schuld}
+M. Schuld, R. Sweke, and J. J. Meyer, ``Effect of data encoding on the
+expressive power of variational quantum-machine-learning models,''
+\emph{Phys. Rev. A}, vol. 103, p. 032430, 2021,
+doi: 10.1103/PhysRevA.103.032430.
+\end{thebibliography}
+
+\end{document}
