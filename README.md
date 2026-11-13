@@ -47,7 +47,9 @@ In VS Code, install or enable the Python and Jupyter extensions, open [`notebook
 
 ## Reproducing results
 
-The current repository is an environment-setup starter; it does not yet include experiment scripts, trained models, saved results, or figure/table-generation commands. Therefore, no experimental results can be reproduced from this version yet. As the work is implemented, add the scripts or notebooks and exact commands here for each figure and table, along with the fixed random seeds, data-generation settings, preprocessing, and dependency versions. Save generated results in the repository so the report can be checked against them.
+The Week 1 implementation is [`notebooks/week1_progress_review.ipynb`](notebooks/week1_progress_review.ipynb). Open it from the project root in VS Code, select the **Python (QNN Fourier Spectrum)** kernel (`qnn-fourier-spectrum`), and run all cells. The notebook records the seed and package versions, creates the seeded 1D and 2D regression data, generates the balanced spiral dataset and fixed stratified folds, evaluates the classical baselines, and trains the initial three-layer one-qubit regressor.
+
+Generated inputs, fold indices, regression predictions, fold-by-fold classification scores, QNN parameters, summaries, and spectrum diagnostics are saved under `outputs/week1/`. The notebook currently implements the Week 1 checkpoint only; the full 1-6 layer sweep, 2D serial/parallel comparison, and hardware evaluation remain planned project work.
 
 ## Schedule and submissions
 
