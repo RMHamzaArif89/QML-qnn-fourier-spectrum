@@ -1,0 +1,49 @@
+{
+  "project": "Project 9: Data re-uploading and the Fourier spectrum of QNNs",
+  "week": 1,
+  "root_seed": 42,
+  "regression": {
+    "n_1d_train": 128,
+    "n_1d_grid": 256,
+    "n_2d_train": 2048,
+    "n_2d_grid_per_axis": 64,
+    "target_fourier_cutoff": 3
+  },
+  "classification": {
+    "dataset": "balanced synthetic two spirals",
+    "examples_per_class": 1000,
+    "folds": 5,
+    "fold_seed": 42
+  },
+  "first_qnn": {
+    "simulator": "exact NumPy statevector",
+    "qubits": 1,
+    "layers_compared": [
+      1,
+      2,
+      3
+    ],
+    "trainable_angles_by_layer": {
+      "1": 2,
+      "2": 4,
+      "3": 6
+    },
+    "initialization_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "optimizer": "full-batch Adam",
+    "learning_rate": 0.01,
+    "maximum_updates": 1000
+  },
+  "python_version": "3.11.9",
+  "package_versions": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "matplotlib": "3.11.2",
+    "scikit-learn": "1.9.1"
+  }
+}

@@ -1,0 +1,5 @@
+task,model,trainable_parameters,dense_grid_mse
+1D,"Fourier linear, K<=3",7,4.8943211929254993e-32
+1D,MLP 1-2-1,7,0.026837881738027942
+2D,"Fourier linear, |k_j|<=3",49,3.3044513992264336e-31
+2D,MLP 2-12-1,49,9.577939682693862e-05

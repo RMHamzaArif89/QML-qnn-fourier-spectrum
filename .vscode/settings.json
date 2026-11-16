@@ -8,5 +8,6 @@
     }
   },
   "terminal.integrated.defaultProfile.windows": "Project PowerShell",
-  "terminal.integrated.cwd": "${workspaceFolder}"
+  "terminal.integrated.cwd": "${workspaceFolder}",
+  "python-envs.defaultEnvManager": "ms-python.python:system"
 }
