@@ -38,18 +38,26 @@ Use the course NB11 capstone starter harness for fixed folds, leakage-free prepr
 The current starter repository includes a Python environment-check notebook and `requirements.txt`. From the repository root, create and activate a virtual environment in PowerShell, then install the listed dependencies:
 
 ```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
+python -m venv .venv-qml
+.\.venv-qml\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
+python -m ipykernel install --user --name qnn-fourier-spectrum --display-name 'Python (QNN Fourier Spectrum)'
 ```
 
-In VS Code, install or enable the Python and Jupyter extensions, open [`notebooks/environment.ipynb`](notebooks/environment.ipynb), and select the project `.venv` as its kernel. Run the notebook cell to verify that the notebook is using that environment.
+In VS Code, install or enable the Python and Jupyter extensions, open [`notebooks/environment.ipynb`](notebooks/environment.ipynb), and select the **Python (QNN Fourier Spectrum)** kernel (`qnn-fourier-spectrum`). The workspace is configured to use `.venv-qml`; run the environment notebook cell to verify the selected interpreter and installed packages. The requirements include Qiskit and Qiskit Aer for NB11, along with the scientific Python and notebook execution packages.
 
 ## Reproducing results
 
 The Week 1 implementation is [`notebooks/week1_progress_review.ipynb`](notebooks/week1_progress_review.ipynb). Open it from the project root in VS Code, select the **Python (QNN Fourier Spectrum)** kernel (`qnn-fourier-spectrum`), and run all cells. Its first code cell checks for NumPy, pandas, Matplotlib, IPython, and scikit-learn; if any are missing, it installs the project requirements into the selected kernel before importing them. Package installation requires access to the configured package index. The notebook records the seed and package versions, creates the seeded 1D and 2D regression data, generates the balanced spiral dataset and fixed stratified folds, evaluates the classical baselines, and trains one-qubit regressors at L=1, 2, and 3.
 
-Generated inputs, fold indices, regression predictions, fold-by-fold classification scores, QNN parameters, summaries, spectrum diagnostics, and figures are saved under `outputs/week1/`; see `outputs/week1/week1_results_summary.md` for a concise interpretation. The notebook implements the Week 1 L=1, 2, and 3 comparison. The L=4-6 sweep, 2D serial/parallel QNNs, quantum spiral classifier, simulator noise sweeps and ablations, and hardware evaluation remain planned project work.
+Generated Week 1 inputs, folds, predictions, parameters, summaries, spectrum diagnostics, and figures are saved under `outputs/week1/`; see `outputs/week1/week1_results_summary.md` for the baseline interpretation. The Week 1 baseline notebook covers L=1-3. The advancement notebook extends the one-qubit study through L=6, adds a high-harmonic target, compares RY/RX data gates with paired initializations, tests Fourier support at 256- and 512-point grids, and evaluates finite-shot sampling. Its results, figures, configuration, and run index are in `outputs/week1Advancement/`.
+
+## Week 1 advancement and NB11 evaluation
+
+- Advancement notebook: [`notebooks/25280103_Week1_Advancement_Task.ipynb`](notebooks/25280103_Week1_Advancement_Task.ipynb). Run all cells with the QNN Fourier Spectrum kernel. It loads the saved Week 1 input NPZ file and writes its layer sweep, gate-axis ablation, spectra, shot study, resource counts, and figures under `outputs/week1Advancement/`.
+- NB11 harness: [`01_regression_and_spectra.ipynb`](01_regression_and_spectra.ipynb). Run all cells with the same kernel. It records the preregistered question, fixed-fold baselines, Qiskit Aer shot-based ZZ kernel, leakage and ansatz checks, noise and finite-shot studies, and resource counts. Machine-readable outputs and figures are saved under `outputs/week1Advancement/nb11/`.
+- Reports: [`report/Week1_Advancement_Report_25280103.pdf`](report/Week1_Advancement_Report_25280103.pdf) and [`report/NB11_Capstone_Report_25280103.pdf`](report/NB11_Capstone_Report_25280103.pdf).
+- The Week 1 advancement and NB11 runs use simulator data only; neither report claims a hardware execution.
 
 ## Schedule and submissions
 

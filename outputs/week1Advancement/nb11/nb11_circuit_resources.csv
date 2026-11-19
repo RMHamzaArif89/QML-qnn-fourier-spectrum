@@ -1,0 +1,2 @@
+qubits,overlap_circuit_depth,two_qubit_gates_per_circuit,circuits_per_five_fold_cv,shots_per_five_fold_cv,kernel_shots,features,feature_map_repetitions
+6,34,20,34320,70287360,2048,6,1

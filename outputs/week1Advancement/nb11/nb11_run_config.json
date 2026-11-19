@@ -1,0 +1,19 @@
+{
+  "benchmark": "NB11 six-feature nonlinear synthetic classification",
+  "seed": 0,
+  "samples": 120,
+  "features": 6,
+  "folds": 5,
+  "kernel_shots": 2048,
+  "noise_subsample": 60,
+  "noise_folds": 3,
+  "shot_repeats": 3,
+  "selected_bandwidth": 0.5,
+  "python": "3.13.7",
+  "numpy": "2.5.5",
+  "pandas": "2.3.3",
+  "scipy": "1.18.1",
+  "scikit_learn": "1.9.1",
+  "qiskit": "2.6.2",
+  "qiskit_aer": "0.18.2"
+}

@@ -1,0 +1,44 @@
+{
+  "task": "Week 1 advancement: re-uploading depth, high-harmonic target, gate-axis ablation, and finite-shot robustness",
+  "student": "Rana Muhammad Hamza",
+  "roll_number": "25280103",
+  "root_seed": 42,
+  "initialization_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "layers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "training_samples": 128,
+  "evaluation_grid": 256,
+  "spectrum_refinement_grid": 512,
+  "optimizer": "full-batch Adam with exact parameter-shift gradients",
+  "learning_rate": 0.01,
+  "max_steps": 1000,
+  "circuit": "RY(x), trainable RZ(theta_z), RY(theta_y), measure expectation Z",
+  "shots": {
+    "grid_points": 64,
+    "repeats": 20,
+    "budgets": [
+      128,
+      512,
+      2048
+    ]
+  },
+  "spectrum_threshold": "max(1e-6, 0.01*c_max)",
+  "data_source": "outputs\\week1\\week1_inputs_and_fixed_folds.npz",
+  "python": "3.13.7",
+  "numpy": "2.5.5",
+  "pandas": "2.3.3",
+  "scipy": "1.18.1",
+  "scikit_learn": "1.9.1"
+}
