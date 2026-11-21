@@ -64,6 +64,7 @@ Generated Week 1 inputs, folds, predictions, parameters, summaries, spectrum dia
 - Notebook: [notebooks/25280103_Week2_Simulator_Results.ipynb](notebooks/25280103_Week2_Simulator_Results.ipynb). It reuses the completed Week 1 1D results and runs the 2D serial/parallel layer sweep, Fourier support checks, depth and CNOT ablations, spiral classification, and Aer depolarizing-noise study.
 - Reproducible tables, trained parameters, run configuration, and figures: [outputs/week2/](outputs/week2/). See [outputs/week2/README.md](outputs/week2/README.md) for the bundle contents.
 - Results draft: [report/Week2_Results_Draft_25280103.pdf](report/Week2_Results_Draft_25280103.pdf) and [report/Week2_Results_Draft_25280103.md](report/Week2_Results_Draft_25280103.md).
+- Submission archive: [submission/25280103_Week2_Submission.zip](submission/25280103_Week2_Submission.zip); package guide: [submission/README_Week2_Submission_25280103.md](submission/README_Week2_Submission_25280103.md).
 - The Week 2 study uses statevector and Qiskit Aer simulation; hardware evaluation is planned for Week 3.
 
 ## Schedule and submissions
