@@ -1,0 +1,88 @@
+{
+  "milestone": "Week 2 simulator results",
+  "student": "Rana Muhammad Hamza",
+  "roll_number": "25280103",
+  "research_question": "How do encoding repetitions and layer count set the frequencies a QNN can represent?",
+  "seed_data": 42,
+  "initialization_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "layers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "training": {
+    "optimizer": "Adam",
+    "learning_rate": 0.01,
+    "maximum_updates": 1000,
+    "gradient": "exact statevector adjoint",
+    "loss": "full-batch MSE"
+  },
+  "2d_layouts": {
+    "serial": {
+      "qubits": 1,
+      "encoding": "RX(x1), RZ(x2) on one qubit",
+      "trainable_parameters_per_layer": 2
+    },
+    "parallel": {
+      "qubits": 2,
+      "encoding": "RX(x1) on q0; RZ(x2) on q1; one CNOT per layer",
+      "trainable_parameters_per_layer": 2
+    }
+  },
+  "spectrum": {
+    "primary_grid": [
+      64,
+      64
+    ],
+    "refinement_grid": [
+      128,
+      128
+    ],
+    "absolute_threshold": 1e-06,
+    "relative_threshold_of_cmax": 0.01
+  },
+  "classification": {
+    "dataset": "saved balanced two spirals",
+    "examples": 2000,
+    "five_saved_stratified_folds": true,
+    "qnn_layout": "parallel two-qubit L=3",
+    "qnn_updates_per_fold": 300,
+    "scaling": "pi times coordinates"
+  },
+  "noise": {
+    "backend": "Qiskit Aer statevector with stochastic depolarizing channels",
+    "probabilities_per_gate": [
+      0.0,
+      0.001,
+      0.005,
+      0.01
+    ],
+    "shots_per_point": 1024,
+    "points_per_repeat": 256,
+    "repeats": 5,
+    "single_qubit_gates": [
+      "rx",
+      "ry",
+      "rz"
+    ],
+    "two_qubit_gate": "cx"
+  },
+  "package_versions": {
+    "numpy": "2.5.5",
+    "pandas": "2.3.3",
+    "matplotlib": "3.11.2",
+    "scikit-learn": "1.9.1",
+    "qiskit": "2.6.2",
+    "qiskit-aer": "0.18.2"
+  },
+  "hardware_execution": false
+}

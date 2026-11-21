@@ -59,6 +59,13 @@ Generated Week 1 inputs, folds, predictions, parameters, summaries, spectrum dia
 - Reports: [`report/Week1_Advancement_Report_25280103.pdf`](report/Week1_Advancement_Report_25280103.pdf) and [`report/NB11_Capstone_Report_25280103.pdf`](report/NB11_Capstone_Report_25280103.pdf).
 - The Week 1 advancement and NB11 runs use simulator data only; neither report claims a hardware execution.
 
+## Week 2 simulator results
+
+- Notebook: [notebooks/25280103_Week2_Simulator_Results.ipynb](notebooks/25280103_Week2_Simulator_Results.ipynb). It reuses the completed Week 1 1D results and runs the 2D serial/parallel layer sweep, Fourier support checks, depth and CNOT ablations, spiral classification, and Aer depolarizing-noise study.
+- Reproducible tables, trained parameters, run configuration, and figures: [outputs/week2/](outputs/week2/). See [outputs/week2/README.md](outputs/week2/README.md) for the bundle contents.
+- Results draft: [report/Week2_Results_Draft_25280103.pdf](report/Week2_Results_Draft_25280103.pdf) and [report/Week2_Results_Draft_25280103.md](report/Week2_Results_Draft_25280103.md).
+- The Week 2 study uses statevector and Qiskit Aer simulation; hardware evaluation is planned for Week 3.
+
 ## Schedule and submissions
 
 All groups present their progress, current report draft, and GitHub code every Sunday.

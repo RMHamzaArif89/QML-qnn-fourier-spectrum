@@ -1,0 +1,3 @@
+task,model,parameters,grid_mse
+2D periodic regression,Fourier linear |k_j|<=3,49,3.3044513992264336e-31
+2D periodic regression,MLP 2-12-1,49,9.577939682693862e-05
