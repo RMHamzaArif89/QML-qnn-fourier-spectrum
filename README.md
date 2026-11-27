@@ -67,6 +67,13 @@ Generated Week 1 inputs, folds, predictions, parameters, summaries, spectrum dia
 - Submission archive: [submission/25280103_Week2_Submission.zip](submission/25280103_Week2_Submission.zip); package guide: [submission/README_Week2_Submission_25280103.md](submission/README_Week2_Submission_25280103.md).
 - The Week 2 study uses statevector and Qiskit Aer simulation; hardware evaluation is planned for Week 3.
 
+## Week 3 IBM hardware evaluation
+
+- Primary executable notebook: [notebooks/25280103_Week3_IBM_Hardware_Evaluation.ipynb](notebooks/25280103_Week3_IBM_Hardware_Evaluation.ipynb). It freezes the selected Week 1 one-qubit L=3 model (seed 3), compares exact and 1,024-shot Aer predictions, and records an IBM Runtime hardware execution. The notebook does not contain credentials.
+- Hardware result bundle: [outputs/week3/](outputs/week3/). It contains the raw measurement counts, sampled predictions, error table, transpilation resources, backend and job metadata, figures, and run configuration. The completed IBM Runtime job ran on `ibm_marrakesh` with 64 circuits x 1,024 shots (65,536 total shots).
+- Week 3 report: [report/Week3_IBM_Hardware_Evaluation_Report_25280103.pdf](report/Week3_IBM_Hardware_Evaluation_Report_25280103.pdf) and [report/Week3_IBM_Hardware_Evaluation_Report_25280103.md](report/Week3_IBM_Hardware_Evaluation_Report_25280103.md).
+- The hardware result is scoped as a time-specific evaluation of one frozen QNN, not as a quantum-advantage claim.
+
 ## Schedule and submissions
 
 All groups present their progress, current report draft, and GitHub code every Sunday.

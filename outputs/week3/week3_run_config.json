@@ -1,0 +1,22 @@
+{
+  "project": "Project 9: Data re-uploading and the Fourier spectrum of QNNs",
+  "week": 3,
+  "execution": "IBM Quantum hardware plus local statevector and Aer comparisons",
+  "selected_model": {
+    "source": "outputs/week1/qnn_1d_predictions_and_parameters.npz",
+    "layers": 3,
+    "initialization_seed": 3,
+    "selection_rule": "lowest saved Week 1 L=3 dense-grid MSE",
+    "trainable_angles": 6
+  },
+  "evaluation": {
+    "periodic_inputs": 64,
+    "shots_per_input": 1024,
+    "total_hardware_shots": 65536,
+    "aer_seed": 25280103
+  },
+  "backend": "ibm_marrakesh",
+  "python": "3.13.7",
+  "time_utc": "2026-11-24T19:28:52.989571+00:00",
+  "credential_policy": "Credentials were supplied at runtime and were not written to outputs or source files."
+}

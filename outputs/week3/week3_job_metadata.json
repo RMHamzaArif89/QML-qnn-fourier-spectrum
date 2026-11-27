@@ -1,0 +1,15 @@
+{
+  "job_id": "dc2uakinj2vs73dhbtjg",
+  "backend": "ibm_marrakesh",
+  "sampler": "qiskit_ibm_runtime.SamplerV2",
+  "job_status_after_result": "DONE",
+  "circuits": 64,
+  "shots_per_circuit": 1024,
+  "total_shots": 65536,
+  "status_after_result": {
+    "operational": true,
+    "pending_jobs": 4,
+    "status_msg": "active"
+  },
+  "completed_utc": "2026-11-24T19:28:52.987395+00:00"
+}

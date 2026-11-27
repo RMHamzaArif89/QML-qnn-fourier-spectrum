@@ -1,0 +1,9 @@
+{
+  "stage": "complete",
+  "backend": "ibm_marrakesh",
+  "job_id": "dc2uakinj2vs73dhbtjg",
+  "circuits": 64,
+  "shots_per_circuit": 1024,
+  "total_shots": 65536,
+  "completed_utc": "2026-11-24T19:28:55.931171+00:00"
+}
