@@ -1,0 +1,10 @@
+{
+  "stage": "complete_with_recovery_note",
+  "backend": "ibm_marrakesh",
+  "regression_job_id": [
+    "dc4v1o5s2omc738g26e0"
+  ],
+  "spiral_job_id": [],
+  "raw_result_tables_available": false,
+  "completed_utc": "2026-11-27T22:38:17.740432+00:00"
+}

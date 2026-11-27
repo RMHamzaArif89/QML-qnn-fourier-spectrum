@@ -1,0 +1,6 @@
+{
+  "stage": "regression_job_completed_but_results_not_recovered",
+  "prior_submission": "C:\\Users\\Teacher\\Desktop\\qml\\qnn-fourier-spectrum\\outputs\\week3Advancement\\week3_advancement_regression_submission.json",
+  "error_type": "RuntimeError",
+  "note": "The IBM platform job completed, but raw result recovery was unavailable with the runtime credential supplied for this execution. No replacement hardware claim is made."
+}

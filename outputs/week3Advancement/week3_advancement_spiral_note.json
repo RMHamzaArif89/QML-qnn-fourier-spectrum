@@ -1,0 +1,4 @@
+{
+  "stage": "not_submitted",
+  "note": "The spiral hardware follow-up was not submitted because the runtime credential was rejected after the regression job. Run this cell again with a valid IBM Quantum API key to submit it."
+}

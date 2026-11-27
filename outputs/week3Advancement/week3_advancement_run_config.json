@@ -1,0 +1,37 @@
+{
+  "project": "Project 9: Data re-uploading and the Fourier spectrum of QNNs",
+  "week": "3 advancement",
+  "backend": "ibm_marrakesh",
+  "shots_per_circuit": 512,
+  "paper_basis": [
+    {
+      "authors": "P\u00e9rez-Salinas et al.",
+      "venue": "Quantum 4, 226 (2020)",
+      "doi": "10.22331/q-2020-02-06-226"
+    },
+    {
+      "authors": "Schuld, Sweke, Meyer",
+      "venue": "Physical Review A 103, 032430 (2021)",
+      "doi": "10.1103/PhysRevA.103.032430"
+    }
+  ],
+  "scope": {
+    "week1_1d_depth_models": [
+      "L1",
+      "L2",
+      "L3",
+      "L6"
+    ],
+    "week2_2d_models": [
+      "serial_L3",
+      "parallel_L3"
+    ],
+    "week2_spiral_model": "parallel_L3_fold0",
+    "one_d_points_per_model": 32,
+    "two_d_grid": "8x8",
+    "spiral_points": 64,
+    "total_planned_circuits": 320
+  },
+  "credential_policy": "Credentials supplied at runtime only; no API key or CRN is stored.",
+  "created_utc": "2026-11-27T22:38:17.736461+00:00"
+}

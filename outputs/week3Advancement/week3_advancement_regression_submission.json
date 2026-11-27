@@ -1,0 +1,12 @@
+{
+  "job_id": "dc4v1o5s2omc738g26e0",
+  "backend": "ibm_marrakesh",
+  "circuits": 256,
+  "shots_per_circuit": 512,
+  "submitted_utc": "2026-11-27T21:06:46.684803+00:00",
+  "status_before_submission": {
+    "operational": true,
+    "pending_jobs": 2,
+    "status_msg": "active"
+  }
+}
