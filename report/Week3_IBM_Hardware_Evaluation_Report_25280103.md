@@ -1,6 +1,6 @@
 # Week 3 IBM Quantum Hardware Evaluation
 
-**Student:** Rana Muhammad Hamza<br>
+**Student:** Rana Muhammad Hamza  
 **Roll number:** 25280103
 
 ## Result at a glance
